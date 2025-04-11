@@ -1,0 +1,32 @@
+@echo off
+color 0a
+title Efendim'in Kurulum Sihirbazı
+echo ----------------------------------------------
+echo      Efendim'in Dijital Ordusu Yükleniyor...
+echo ----------------------------------------------
+echo.
+
+:: Python kontrol
+python --version >nul 2>&1
+IF %ERRORLEVEL% NEQ 0 (
+    echo [!] Python yüklü değil. Lütfen https://www.python.org adresinden Python yükleyin.
+    pause
+    exit /b
+)
+
+:: pip güncelle
+echo [+] pip güncelleniyor...
+python -m pip install --upgrade pip
+
+:: Gerekli kütüphaneler
+echo [+] Gerekli kütüphaneler kuruluyor...
+pip install pycryptodome
+pip install pyautogui
+pip install customtkinter
+
+:: Kurulum tamam
+echo.
+echo ----------------------------------------------
+echo [✓] Tüm kütüphaneler başarıyla kuruldu!
+echo ----------------------------------------------
+pause
